@@ -1,8 +1,9 @@
-package com.retocuatro.repository.crud;
+package com.retocinco.repository.crud;
 
 
-import com.retocuatro.model.Order;
+import com.retocinco.model.Order;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -17,4 +18,6 @@ public interface OrderCrudRepository extends CrudRepository<Order, Integer> {
     
     @Query("{status: ?0}")
     List<Order> findByStatus(final String status);
+    
+    Optional<Order> findTopByOrderByIdDesc();
 }

@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.retocuatro.repository;
+package com.retocinco.repository;
 
-import com.retocuatro.model.Clothe;
-import com.retocuatro.repository.crud.ClotheCrudRepository;
+import com.retocinco.model.Clothe;
+import com.retocinco.repository.crud.ClotheCrudRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +34,14 @@ public class ClotheRepository {
     
     public void delete(String reference) {
         clotheCrudRepository.deleteById(reference);
+    }
+    //Reto 5
+    public List<Clothe> gadgetsByPrice(double precio) {
+        return clotheCrudRepository.findByPriceLessThanEqual(precio);
+    }
+    //Reto 5
+    public List<Clothe> findByDescriptionLike(String description) {
+        return clotheCrudRepository.findByDescriptionLike(description);
     }
     
     

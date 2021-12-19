@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.retocuatro.controller;
+package com.retocinco.controller;
 
-import com.retocuatro.model.User;
-import com.retocuatro.service.UserService;
+import com.retocinco.model.User;
+import com.retocinco.service.UserService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,5 +100,9 @@ public class UserController {
     @GetMapping("/emailexist/{email}")
     public boolean emailExists(@PathVariable("email") String email) {
         return userService.emailExists(email);
+    }
+    @GetMapping("/birthday/{month}")
+    public List<User> birthtDayList(@PathVariable("month") String monthBirthtDay) {
+        return userService.birthtDayList(monthBirthtDay);
     }
 }

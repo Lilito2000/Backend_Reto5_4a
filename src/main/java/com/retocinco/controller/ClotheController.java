@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.retocuatro.controller;
+package com.retocinco.controller;
 
-import com.retocuatro.model.Clothe;
-import com.retocuatro.service.ClotheService;
+import com.retocinco.model.Clothe;
+import com.retocinco.service.ClotheService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +48,8 @@ public class ClotheController {
      * @return a list of users in DB
      */
     @GetMapping("/{id}")
-    public Optional<Clothe> getClothe(@PathVariable("id") String reference){ return clotheService.getByReference(reference); }
+    public Optional<Clothe> getClothe(@PathVariable("id") String reference){ 
+        return clotheService.getByReference(reference); }
 
     /**
      *
@@ -81,6 +82,15 @@ public class ClotheController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("reference") String reference) {
         return clotheService.delete(reference);
+    }
+    @GetMapping("/price/{price}")
+    public List<Clothe> gadgetsByPrice(@PathVariable("price") double precio) {
+        return clotheService.gadgetsByPrice(precio);
+    }
+
+    @GetMapping("/description/{description}")
+    public List<Clothe> findByDescriptionLike(@PathVariable("description") String description) {
+        return clotheService.findByDescriptionLike(description);
     }
   
 }

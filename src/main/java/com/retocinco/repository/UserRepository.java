@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.retocuatro.repository;
+package com.retocinco.repository;
 
-import com.retocuatro.model.User;
-import com.retocuatro.repository.crud.UserCrudRepository;
+import com.retocinco.model.User;
+import com.retocinco.repository.crud.UserCrudRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +44,13 @@ public class UserRepository {
     
     public Optional<User> authenticateUser(String email, String password) {
         return userCrudRepository.findByEmailAndPassword(email, password);
+    }
+    public Optional<User> lastUserId(){
+        return userCrudRepository.findTopByOrderByIdDesc();
+    }
+     
+    public List<User> birthtDayList(String monthBirthtDay) {
+        return userCrudRepository.findByMonthBirthtDay(monthBirthtDay);
     }
      
      

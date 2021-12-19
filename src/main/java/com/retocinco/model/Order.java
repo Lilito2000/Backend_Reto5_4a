@@ -1,4 +1,4 @@
-package com.retocuatro.model;
+package com.retocinco.model;
 
 import java.util.Date;
 import java.util.Map;

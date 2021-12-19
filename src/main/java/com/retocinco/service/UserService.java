@@ -1,7 +1,7 @@
-package com.retocuatro.service;
+package com.retocinco.service;
 
-import com.retocuatro.model.User;
-import com.retocuatro.repository.UserRepository;
+import com.retocinco.model.User;
+import com.retocinco.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,5 +134,8 @@ public class UserService {
         } else {
             return usuario.get();
         }
+    }
+    public List<User> birthtDayList(String monthBirthtDay) {
+        return userRepository.birthtDayList(monthBirthtDay);
     }
 }

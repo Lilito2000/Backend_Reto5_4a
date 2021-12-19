@@ -1,13 +1,13 @@
-package com.retocuatro.repository;
+package com.retocinco.repository;
 
 
-import com.retocuatro.model.Order;
+import com.retocinco.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import com.retocuatro.repository.crud.OrderCrudRepository;
+import com.retocinco.repository.crud.OrderCrudRepository;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -77,6 +77,13 @@ public class OrderRepository {
         return orderCrudRepository.findByZone(zona);
     }
 
+    /**
+     *
+     * @return
+     */
+    public Optional<Order> lastUserId() {
+        return orderCrudRepository.findTopByOrderByIdDesc();
+    }
     /**
      * Ordenes de un vendedor por fecha
      * @param dateStr
